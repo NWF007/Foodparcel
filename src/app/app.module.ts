@@ -1,16 +1,80 @@
+import { environment } from './../environments/environment';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminComponent } from './components/admin/admin.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
+import { LandingpageComponent } from './pages/landingpage/landingpage.component';
+import { HomeComponent } from './pages/home/home.component';
+import { PagenotfoundComponent } from './pages/pagenotfound/pagenotfound.component';
+import { AdminsigninComponent } from './pages/adminsignin/adminsignin.component';
+import { AdminsignupComponent } from './pages/adminsignup/adminsignup.component';
+import { FormsModule } from '@angular/forms';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+
+import {ToastrModule} from "ngx-toastr";
+
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { DeliveryComponent } from './pages/delivery/delivery.component';
+import { AccountingComponent } from './pages/accounting/accounting.component';
+import { ApplicationsComponent } from './pages/applications/applications.component';
+import { InventoryComponent } from './pages/inventory/inventory.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DonateComponent } from './pages/donate/donate.component';
+import { ApplyComponent } from './pages/apply/apply.component';
+import { DeliveriesComponent } from './pages/deliveries/deliveries.component';
+
+//import { DatePickerModule} from '@angular/material';
+import { MatNativeDateModule } from '@angular/material/core';
+//import { MaterialModule } from '@angular/material';
+//import { DatePickerModule } from 'angular-material-datepicker';
+import { MatDatepickerModule} from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AdminComponent,
+    HeaderComponent,
+    FooterComponent,
+    LandingpageComponent,
+    HomeComponent,
+    PagenotfoundComponent,
+    AdminsigninComponent,
+    AdminsignupComponent,
+    DeliveryComponent,
+    AccountingComponent,
+    ApplicationsComponent,
+    InventoryComponent,
+    DonateComponent,
+    ApplyComponent,
+    DeliveriesComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+
+    AngularFireModule.initializeApp(environment.firebase),
+    
+    AngularFireAuthModule,
+    AngularFireDatabaseModule,
+    NgbModule,
+
+    MatDatepickerModule,
+    //MaterialModule.forRoot(),
+    MatNativeDateModule,
+    MatInputModule
+    //DatePickerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

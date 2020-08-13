@@ -1,0 +1,14 @@
+.background{
+    background-color: #99AAAB;
+    margin: 1ex;
+}
+
+.threedivs{
+    height: 300px;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+}

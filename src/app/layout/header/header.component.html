@@ -1,0 +1,94 @@
+<nav class="navbar navbar-expand-lg navbar-dark headfoot">
+  <a class="navbar-brand" [routerLink]="['/']">
+    <!-- <img
+        src="../../../assets/img.png"
+        width="30"
+        height="30"
+        class="d-inline-block align-top"
+        alt=""
+      /> -->
+    NWF Foodparcel App
+  </a>
+  <button
+    class="navbar-toggler navbar-toggler-right"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNavAltMarkup"
+    aria-controls="navbarContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+    (click)="navbarCollapsed = !navbarCollapsed"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div
+    class="collapse navbar-collapse"
+    [ngbCollapse]="navbarCollapsed"
+    id="navbarNavAltMarkup"
+  >
+    <div class="navbar-nav ml-auto">
+      <!-- if the user is present then printing email -->
+      <div *ngIf="email" class="navbar-text float-left">
+        {{ email }}
+      </div>
+      <a
+        *ngIf="
+          router.url === '/admin/delivery' ||
+          router.url == '/admin/accounting' ||
+          router.url == '/admin/applications' ||
+          router.url == '/admin/inventory'
+        "
+        [routerLink]="['/admin']"
+        class="nav-item nav-link"
+        >Home</a
+      >
+      <!-- conditionally rendering links  -->
+      <a
+        *ngIf="router.url === '/admin/signup'"
+        routerLinkActive="active"
+        [routerLink]="['/admin/signin']"
+        class="nav-item nav-link"
+        >Sign In</a
+      >
+      <a
+        *ngIf="router.url === '/admin/signin'"
+        routerLinkActive="active"
+        [routerLink]="['/admin/signup']"
+        class="nav-item nav-link"
+        >Sign Up</a
+      >
+
+      <a
+        *ngIf="router.url == '/'"
+        routerLinkActive="active"
+        [routerLink]="['/apply']"
+        class="nav-item nav-link"
+        >Apply Here</a
+      >
+
+      <a
+        *ngIf="router.url === '/'"
+        routerLinkActive="active"
+        [routerLink]="['/donate']"
+        class="nav-item nav-link"
+        >Donations</a
+      >
+
+      <a
+        *ngIf="router.url === '/'"
+        routerLinkActive="active"
+        [routerLink]="['/delivery']"
+        class="nav-item nav-link"
+        >See deliveries</a
+      >
+
+      <a
+        *ngIf="email"
+        (click)="handleSignOut()"
+        class="nav-item nav-link text-warning"
+        >Log Out</a
+      >
+    </div>
+  </div>
+</nav>

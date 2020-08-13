@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "foodparcel-3f789": {
+      "hosting": {
+        "foodparcel": [
+          "foodparcel-3f789"
+        ]
+      }
+    }
+  }
+}
