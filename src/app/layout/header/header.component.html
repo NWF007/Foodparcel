@@ -136,7 +136,7 @@
 
       <!-- this logout is for the admin -->
       <a
-        *ngIf="email && router.url == '/admin'"
+        *ngIf="email && router.url == '/admin' || router.url == '/admin/accounting' || router.url == '/admin/applications'"
         (click)="handleSignOut()"
         class="nav-item nav-link text-warning"
         >Log Out</a
@@ -150,7 +150,7 @@
         >Log Out</a
       >
 
-      <!-- this logout is for the admin -->
+      <!-- this logout is for donate -->
       <a
         *ngIf="email && router.url == '/donate'"
         (click)="handleDonorSignOut()"

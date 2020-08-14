@@ -1,8 +1,9 @@
-<p>deliveries works!</p>
-
+<h3 class="text-center text-white m-3">
+  The location of our next food parcel delivery.
+</h3>
 
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
 <agm-map [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-  </agm-map>
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>

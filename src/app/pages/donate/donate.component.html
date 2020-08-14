@@ -1,3 +1,41 @@
 <h3 class="text-white text-center m-3">
-    Thank you soooo much for being willing to donate...
+  Thank you soooo much for being willing to donate...
 </h3>
+
+<button (click)="displayForm()" class="btn btn-info m-3">
+  Like to make donation?
+</button>
+
+<div *ngIf="form">
+  <div class="main row mt-5 mb-3">
+    <div class="col col-6 offset-3">
+      <div class="card border-primary">
+        <div class="card-header bg-secondary text-large text-white text-center">
+          {{ "Make your donation here" | uppercase }}
+        </div>
+
+        <form class="card-body" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <input
+              type="text"
+              rows="5"
+              class="form-control"
+              id="amount"
+              name="amount"
+              [(ngModel)]="amount"
+              required
+              placeholder="1000"
+            />
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" [disabled]="!amount">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
