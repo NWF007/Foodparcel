@@ -20,30 +20,66 @@ import { ApplicationsComponent } from './pages/applications/applications.compone
 import { ApplyComponent } from './pages/apply/apply.component';
 import { DeliveriesComponent } from './pages/deliveries/deliveries.component';
 import { DonateComponent } from './pages/donate/donate.component';
+import { DonatesignupComponent } from './pages/donatesignup/donatesignup.component';
+import { DonatesigninComponent } from './pages/donatesignin/donatesignin.component';
+import { ApplysignupComponent } from './pages/applysignup/applysignup.component';
+import { ApplysigninComponent } from './pages/applysignin/applysignin.component';
 
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/admin/signin']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['/admin']);
 
+const redirectUnauthorizedDonorToLogin = () => redirectUnauthorizedTo(['/donate/signin']);
+const redirectLoggedInDonorToDonate = () => redirectLoggedInTo(['/donate']);
+
+const redirectUnauthorizedApplicantToLogin = () => redirectUnauthorizedTo(['/apply/signin']);
+const redirectLoggedInApplicantToApply = () => redirectLoggedInTo(['/apply']);
+
 const routes: Routes = [
   {
     path: 'apply',
     component: ApplyComponent,
-    // canActivate: [AngularFireAuthGuard],
-    // data: {authGuardPipe: redirectLoggedInToHome}
-},{
+    canActivate: [AngularFireAuthGuard],
+    data: {authGuardPipe: redirectUnauthorizedApplicantToLogin}
+},
+{
+  path: 'apply/signup',
+  component: ApplysignupComponent,
+  canActivate: [AngularFireAuthGuard],
+  data: {authGuardPipe: redirectLoggedInApplicantToApply}
+},
+{
+  path: 'apply/signin',
+  component: ApplysigninComponent,
+  canActivate: [AngularFireAuthGuard],
+  data: {authGuardPipe: redirectLoggedInApplicantToApply}
+},
+{
   path: 'donate',
   component: DonateComponent,
-  // canActivate: [AngularFireAuthGuard],
-  // data: {authGuardPipe: redirectLoggedInToHome}
-},{
+  canActivate: [AngularFireAuthGuard],
+  data: {authGuardPipe: redirectUnauthorizedDonorToLogin}
+},
+{
+  path: 'donate/signup',
+  component: DonatesignupComponent,
+  canActivate: [AngularFireAuthGuard],
+  data: {authGuardPipe: redirectLoggedInDonorToDonate}
+},
+{
+  path: 'donate/signin',
+  component: DonatesigninComponent,
+  canActivate: [AngularFireAuthGuard],
+  data: {authGuardPipe: redirectLoggedInDonorToDonate}
+},
+{
   path: 'delivery',
   component: DeliveriesComponent,
   // canActivate: [AngularFireAuthGuard],
   // data: {authGuardPipe: redirectLoggedInToHome}
 },
-  {
+{
     path: 'admin/signin',
     component: AdminsigninComponent,
     canActivate: [AngularFireAuthGuard],

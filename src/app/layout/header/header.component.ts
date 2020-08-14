@@ -44,4 +44,30 @@ export class HeaderComponent implements OnInit {
     }
   }
 
+  async handleDonorSignOut(){
+    try {
+      await this.auth.signOut();
+
+      this.router.navigateByUrl("/donate/signin");
+      this.toastr.info("Successfully signed out");
+      this.email = null;
+
+    } catch (error) {
+      this.toastr.error("Problem signin out...");
+    }
+  }
+
+  async handleApplySignOut(){
+    try {
+      await this.auth.signOut();
+
+      this.router.navigateByUrl("/donate/signin");
+      this.toastr.info("Successfully signed out");
+      this.email = null;
+
+    } catch (error) {
+      this.toastr.error("Problem signin out...");
+    }
+  }
+
 }

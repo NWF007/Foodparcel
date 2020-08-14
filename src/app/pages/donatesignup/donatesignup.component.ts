@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
-import { NgForm} from '@angular/forms';
-import { finalize } from "rxjs/operators";
-import { AngularFireDatabase } from "@angular/fire/database";
+import { NgForm } from '@angular/forms';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { finalize } from 'rxjs/operators';
+
 
 
 @Component({
-  selector: 'app-adminsignup',
-  templateUrl: './adminsignup.component.html',
-  styleUrls: ['./adminsignup.component.css']
+  selector: 'app-donatesignup',
+  templateUrl: './donatesignup.component.html',
+  styleUrls: ['./donatesignup.component.css']
 })
-export class AdminsignupComponent implements OnInit {
-
-  listOfJobs : Array<string> = ["Accountant", "Clerk", "Manager", "Inventory Controller"];
+export class DonatesignupComponent implements OnInit {
 
   constructor(
-    private auth: AuthService,
-    private toastr: ToastrService,
     private router: Router,
-    private db : AngularFireDatabase
+    private toastr: ToastrService,
+    private auth: AuthService,
+    private db: AngularFireDatabase
   ) { }
 
   ngOnInit(): void {
@@ -28,7 +27,7 @@ export class AdminsignupComponent implements OnInit {
 
   onSubmit(f: NgForm){
 
-    const {email, password, firstName, lastName, jobTitle, dateStarted} = f.form.value;
+    const {firstName, lastName, email, password, phoneNumber} = f.form.value;
 
     this.auth.signUp(email, password)
     .then((res) => {
@@ -36,19 +35,18 @@ export class AdminsignupComponent implements OnInit {
       const {uid} = res.user;
 
       console.log("about to put details into db");
-      this.db.object(`/employees/${uid}`)
+      this.db.object(`/donors/${uid}`)
       .set({               
         id: uid,
         firstName: firstName,
         lastName : lastName,
         email: email,
-        jobTitle: jobTitle,
-        dateStarted : dateStarted
+        phoneNumber: phoneNumber
       });
     })
     .then(() => {
       console.log("managed to put into db");
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/donate');
       this.toastr.success("Successful signup");
     })
     .catch((err) => {

@@ -32,6 +32,8 @@
       <div *ngIf="email" class="navbar-text float-left">
         {{ email }}
       </div>
+
+      <!-- this home will go to the admin home page -->
       <a
         *ngIf="
           router.url === '/admin/delivery' ||
@@ -43,7 +45,22 @@
         class="nav-item nav-link"
         >Home</a
       >
-      <!-- conditionally rendering links  -->
+
+      <!-- this home will go to home page of site -->
+      <a
+      *ngIf="
+        router.url === '/apply/signin' ||
+        router.url === '/apply/signup' ||
+        router.url == '/delivery' ||
+        router.url == '/donate/signin' ||
+        router.url == '/donate/signup'
+      "
+      [routerLink]="['/']"
+      class="nav-item nav-link"
+      >Home</a
+    >
+
+      <!-- show signup and signin for admin   -->
       <a
         *ngIf="router.url === '/admin/signup'"
         routerLinkActive="active"
@@ -55,6 +72,40 @@
         *ngIf="router.url === '/admin/signin'"
         routerLinkActive="active"
         [routerLink]="['/admin/signup']"
+        class="nav-item nav-link"
+        >Sign Up</a
+      >
+<!-- 
+      show signup and signin for donors to donate -->
+      <a
+        *ngIf="router.url === '/donate/signup'"
+        routerLinkActive="active"
+        [routerLink]="['/donate/signin']"
+        class="nav-item nav-link"
+        >Sign In</a
+      >
+
+      <a
+        *ngIf="router.url === '/donate/signin'"
+        routerLinkActive="active"
+        [routerLink]="['/donate/signup']"
+        class="nav-item nav-link"
+        >Sign Up</a
+      >
+
+      <!-- show signup and signin for donors for applicants -->
+      <a
+        *ngIf="router.url === '/apply/signup'"
+        routerLinkActive="active"
+        [routerLink]="['/apply/signin']"
+        class="nav-item nav-link"
+        >Sign In</a
+      >
+
+      <a
+        *ngIf="router.url === '/apply/signin'"
+        routerLinkActive="active"
+        [routerLink]="['/apply/signup']"
         class="nav-item nav-link"
         >Sign Up</a
       >
@@ -83,9 +134,26 @@
         >See deliveries</a
       >
 
+      <!-- this logout is for the admin -->
       <a
-        *ngIf="email"
+        *ngIf="email && router.url == '/admin'"
         (click)="handleSignOut()"
+        class="nav-item nav-link text-warning"
+        >Log Out</a
+      >
+
+      <!-- this logout is for the applicants -->
+      <a
+        *ngIf="email && router.url == '/apply'"
+        (click)="handleApplySignOut()"
+        class="nav-item nav-link text-warning"
+        >Log Out</a
+      >
+
+      <!-- this logout is for the admin -->
+      <a
+        *ngIf="email && router.url == '/donate'"
+        (click)="handleDonorSignOut()"
         class="nav-item nav-link text-warning"
         >Log Out</a
       >

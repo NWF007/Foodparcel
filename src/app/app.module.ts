@@ -36,6 +36,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 //import { DatePickerModule } from 'angular-material-datepicker';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
+import { DonatesignupComponent } from './pages/donatesignup/donatesignup.component';
+import { DonatesigninComponent } from './pages/donatesignin/donatesignin.component';
+import { ApplysignupComponent } from './pages/applysignup/applysignup.component';
+import { ApplysigninComponent } from './pages/applysignin/applysignin.component';
+
+// this is for google maps
+import { AgmCoreModule } from '@agm/core';
+// import {} from 'googlemaps';
 
 @NgModule({
   declarations: [
@@ -54,7 +62,11 @@ import { MatInputModule } from '@angular/material/input';
     InventoryComponent,
     DonateComponent,
     ApplyComponent,
-    DeliveriesComponent
+    DeliveriesComponent,
+    DonatesignupComponent,
+    DonatesigninComponent,
+    ApplysignupComponent,
+    ApplysigninComponent
   ],
   imports: [
     BrowserModule,
@@ -73,8 +85,13 @@ import { MatInputModule } from '@angular/material/input';
     MatDatepickerModule,
     //MaterialModule.forRoot(),
     MatNativeDateModule,
-    MatInputModule
+    MatInputModule,
     //DatePickerModule
+
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    })
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./deliveries.component.css']
 })
 export class DeliveriesComponent implements OnInit {
+  lat = -33.9249;
+  lng = 18.4241;
 
   constructor() { }
 
