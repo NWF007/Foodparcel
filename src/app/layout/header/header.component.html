@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark headfoot">
+<nav class="navbar navbar-expand-lg navbar-dark headfoot menu-toggle">
   <a class="navbar-brand" [routerLink]="['/']">
     <!-- <img
         src="../../../assets/img.png"
@@ -7,8 +7,10 @@
         class="d-inline-block align-top"
         alt=""
       /> -->
-    NWF Foodparcel App
-  </a>
+    <div>
+      <h3 class="brand mr-3 ml-3">N<span>W</span>Food</h3>
+    </div></a
+  >
   <button
     class="navbar-toggler navbar-toggler-right"
     type="button"
@@ -17,9 +19,10 @@
     aria-controls="navbarContent"
     aria-expanded="false"
     aria-label="Toggle navigation"
+    id="hamburger"
     (click)="navbarCollapsed = !navbarCollapsed"
   >
-    <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon mb-0"></span>
   </button>
 
   <div
@@ -48,17 +51,17 @@
 
       <!-- this home will go to home page of site -->
       <a
-      *ngIf="
-        router.url === '/apply/signin' ||
-        router.url === '/apply/signup' ||
-        router.url == '/delivery' ||
-        router.url == '/donate/signin' ||
-        router.url == '/donate/signup'
-      "
-      [routerLink]="['/']"
-      class="nav-item nav-link"
-      >Home</a
-    >
+        *ngIf="
+          router.url === '/apply/signin' ||
+          router.url === '/apply/signup' ||
+          router.url == '/delivery' ||
+          router.url == '/donate/signin' ||
+          router.url == '/donate/signup'
+        "
+        [routerLink]="['/']"
+        class="nav-item nav-link"
+        >Home</a
+      >
 
       <!-- show signup and signin for admin   -->
       <a
@@ -75,7 +78,7 @@
         class="nav-item nav-link"
         >Sign Up</a
       >
-<!-- 
+      <!-- 
       show signup and signin for donors to donate -->
       <a
         *ngIf="router.url === '/donate/signup'"
@@ -136,7 +139,11 @@
 
       <!-- this logout is for the admin -->
       <a
-        *ngIf="email && router.url == '/admin' || router.url == '/admin/accounting' || router.url == '/admin/applications'"
+        *ngIf="
+          (email && router.url == '/admin') ||
+          router.url == '/admin/accounting' ||
+          router.url == '/admin/applications'
+        "
         (click)="handleSignOut()"
         class="nav-item nav-link text-warning"
         >Log Out</a

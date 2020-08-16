@@ -67,4 +67,12 @@ export class DonateComponent implements OnInit {
     });
   }
 
+
+  getDonorDonations(){
+    const userId = this.userId;
+
+    this.db.object('/donations/')
+
+  }
+
 }
