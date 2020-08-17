@@ -1,13 +1,74 @@
-<h2 class="text-white text-center">
-  Welcome to the accounting subsystem
-</h2>
-
 <div class="container">
+  <h2 class="text-white text-center">
+    Welcome to the accounting subsystem
+  </h2>
+
   <div class="row m-2">
     <div class="text-center">
-      <button (click)="getAllDonors()" class="btn btn-danger">
+      <button (click)="getAllDonors()" class="btn btn-danger m-3">
         Get all donors info
       </button>
     </div>
+
+    <div class="text-center">
+      <button (click)="getAllDonations()" class="btn btn-danger m-3">
+        Get all Donations
+      </button>
+    </div>
   </div>
+
+  <mat-table
+    #table
+    [dataSource]="ELEMENT_DATA"
+    matSort
+    class="mat-elevation-z8 table md-col-5 sm-col-7"
+  >
+    <ng-container matColumnDef="transactionId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Transaction ID
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.transactionId }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="userId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        User ID
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.userId }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Date
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.date | date }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="donatedBy">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Donated By
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.donatedBy }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>
+        Amount
+      </th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.amount | currency }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="donationsColumnNames"></tr>
+    <tr mat-row *matRowDef="let row; columns: donationsColumnNames"></tr>
+  </mat-table>
 </div>

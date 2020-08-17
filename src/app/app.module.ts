@@ -32,7 +32,7 @@ import { DeliveriesComponent } from './pages/deliveries/deliveries.component';
 
 //import { DatePickerModule} from '@angular/material';
 import { MatNativeDateModule } from '@angular/material/core';
-//import { MaterialModule } from '@angular/material';
+import { MatTableModule } from '@angular/material/table';
 //import { DatePickerModule } from 'angular-material-datepicker';
 import { MatDatepickerModule} from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
@@ -40,6 +40,7 @@ import { DonatesignupComponent } from './pages/donatesignup/donatesignup.compone
 import { DonatesigninComponent } from './pages/donatesignin/donatesignin.component';
 import { ApplysignupComponent } from './pages/applysignup/applysignup.component';
 import { ApplysigninComponent } from './pages/applysignin/applysignin.component';
+
 
 // this is for google maps
 import { AgmCoreModule } from '@agm/core';
@@ -87,6 +88,7 @@ import { AgmCoreModule } from '@agm/core';
     MatNativeDateModule,
     MatInputModule,
     //DatePickerModule
+    MatTableModule,
 
     AgmCoreModule.forRoot({
       apiKey: '' //add apiKey here
