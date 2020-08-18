@@ -11,6 +11,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ApplicationsComponent implements OnInit {
 
+  applicants = false;
+
   applications = [];
 
   constructor(
@@ -21,18 +23,22 @@ export class ApplicationsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getAllApplicantions(){
-    this.db.object('/applicants')
-    .valueChanges()
-    .subscribe((applicant) => {
-      if(applicant){
-        this.applications = Object.values(applicant);
-        console.log(applicant);
-      } else {
-        this.toastr.error("No applications found");
-        this.applications = [];
-      }
-    });
+  // getAllApplicantions(){
+  //   this.db.object('/applicants')
+  //   .valueChanges()
+  //   .subscribe((applicant) => {
+  //     if(applicant){
+  //       this.applications = Object.values(applicant);
+  //       console.log(applicant);
+  //     } else {
+  //       this.toastr.error("No applications found");
+  //       this.applications = [];
+  //     }
+  //   });
+  // }
+
+  showApplicants(){
+    this.applicants = !this.applicants;
   }
 
 }

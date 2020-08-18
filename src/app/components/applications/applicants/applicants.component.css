@@ -1,0 +1,57 @@
+
+.mat-cell{
+    color: blue;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 15px;
+}
+
+.mat-header-cell{
+    text-align: center;
+    margin: 1px;
+    font-weight: bold;
+    font-size: 17px;
+    padding: 15px 0;
+    background-color: crimson;
+    color: white;
+}
+
+.mat-row:nth-child(even){
+    background-color: whitesmoke;
+}
+.mat-row:nth-child(odd){
+    background-color: silver;
+}
+
+    th.mat-sort-header-sorted{
+        color: red;
+    }
+
+.mat-column-Id {
+    width: 20%;
+}
+
+.mat-column-firstName {
+    width: 10%;
+}
+
+.mat-column-lastName {
+    width: 10%;
+}
+
+.mat-column-email {
+    width: 10%;
+}
+
+.mat-column-phoneNumber {
+    width: 15%;
+}
+
+.mat-column-annualIncome {
+    width: 15%;
+}
+
+
+.mat-column-address {
+    width: 20%;
+}

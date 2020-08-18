@@ -44,6 +44,9 @@ import { ApplysigninComponent } from './pages/applysignin/applysignin.component'
 
 // this is for google maps
 import { AgmCoreModule } from '@agm/core';
+import { DonationsComponent } from './components/accounting/donations/donations.component';
+import { DonorsComponent } from './components/accounting/donors/donors.component';
+import { ApplicantsComponent } from './components/applications/applicants/applicants.component';
 // import {} from 'googlemaps';
 
 @NgModule({
@@ -67,7 +70,10 @@ import { AgmCoreModule } from '@agm/core';
     DonatesignupComponent,
     DonatesigninComponent,
     ApplysignupComponent,
-    ApplysigninComponent
+    ApplysigninComponent,
+    DonationsComponent,
+    DonorsComponent,
+    ApplicantsComponent
   ],
   imports: [
     BrowserModule,

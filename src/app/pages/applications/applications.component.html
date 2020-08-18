@@ -1,7 +1,11 @@
-<h2 class="text-white text-center">
+<div class="container">
+  <h2 class="text-white text-center">
     Welcome to the applications subsystem
-</h2>
+  </h2>
 
-<button (click)="getAllApplicantions()" class="btn btn-info m-3">
+  <button (click)="showApplicants()" class="btn btn-danger col-3 m-3">
     Get all applications
-</button>
+  </button>
+
+  <app-applicants *ngIf="applicants"></app-applicants>
+</div>
