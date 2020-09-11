@@ -6,4 +6,5 @@ export interface Applications {
     phoneNumber: string;
     annualIncome: number;
     address: string;
+    qualify: boolean;
 }

@@ -12,6 +12,7 @@ import { ToastrService } from 'ngx-toastr';
 export class ApplicationsComponent implements OnInit {
 
   applicants = false;
+  update = false;
 
   applications = [];
 
@@ -39,6 +40,10 @@ export class ApplicationsComponent implements OnInit {
 
   showApplicants(){
     this.applicants = !this.applicants;
+  }
+
+  updateApplicant(){
+    this.update = !this.update;
   }
 
 }

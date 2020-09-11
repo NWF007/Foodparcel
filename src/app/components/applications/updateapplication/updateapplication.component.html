@@ -1,0 +1,47 @@
+<div>
+  <div class="main row mt-5 mb-3">
+    <div class="col col-6 offset-3">
+      <div class="card border-primary">
+        <div class="card-header bg-secondary text-large text-white text-center">
+          {{ "Make your donation here" | uppercase }}
+        </div>
+
+        <form class="card-body" (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="form-group">
+            <label for="id">ID</label>
+            <input
+              type="text"
+              rows="5"
+              class="form-control"
+              id="id"
+              name="id"
+              [(ngModel)]="id"
+              required
+              placeholder="user ID"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="qualify">qualify</label>
+            <input
+              type="text"
+              rows="5"
+              class="form-control"
+              id="qualify"
+              name="qualify"
+              [(ngModel)]="qualify"
+              required
+              placeholder="1000"
+            />
+          </div>
+
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary">
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

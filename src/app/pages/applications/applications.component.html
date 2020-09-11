@@ -7,5 +7,11 @@
     Get all applications
   </button>
 
+  <button (click)="updateApplicant()" class="btn btn-danger col-3 m-3">
+    Update Applicant
+  </button>
+
   <app-applicants *ngIf="applicants"></app-applicants>
+
+  <app-updateapplication *ngIf="update"></app-updateapplication>
 </div>

@@ -44,7 +44,7 @@
 }
 
 .mat-column-phoneNumber {
-    width: 15%;
+    width: 10%;
 }
 
 .mat-column-annualIncome {
@@ -53,5 +53,9 @@
 
 
 .mat-column-address {
-    width: 20%;
+    width: 15%;
+}
+
+.mat-column-qualify {
+    width: 10%;
 }

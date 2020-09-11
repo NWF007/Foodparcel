@@ -47,6 +47,7 @@ import { AgmCoreModule } from '@agm/core';
 import { DonationsComponent } from './components/accounting/donations/donations.component';
 import { DonorsComponent } from './components/accounting/donors/donors.component';
 import { ApplicantsComponent } from './components/applications/applicants/applicants.component';
+import { UpdateapplicationComponent } from './components/applications/updateapplication/updateapplication.component';
 // import {} from 'googlemaps';
 
 @NgModule({
@@ -73,7 +74,8 @@ import { ApplicantsComponent } from './components/applications/applicants/applic
     ApplysigninComponent,
     DonationsComponent,
     DonorsComponent,
-    ApplicantsComponent
+    ApplicantsComponent,
+    UpdateapplicationComponent
   ],
   imports: [
     BrowserModule,
@@ -97,7 +99,7 @@ import { ApplicantsComponent } from './components/applications/applicants/applic
     MatTableModule,
 
     AgmCoreModule.forRoot({
-      apiKey: '' //add apiKey here
+      apiKey: 'AIzaSyDh-NTL96frMkzPszwbrcf0hdQ8pRA67I0' //add apiKey here
     })
 
   ],

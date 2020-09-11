@@ -15,7 +15,7 @@ export class ApplicantsComponent implements OnInit {
 
   ELEMENT_DATA: Applications[];
 
-  applicationsColumnNames: string[] = ['Id', 'firstName', 'lastName', 'email', 'phoneNumber', 'annualIncome', 'address'];
+  applicationsColumnNames: string[] = ['Id', 'firstName', 'lastName', 'email', 'phoneNumber', 'annualIncome', 'address', 'qualify'];
 
   constructor(
     private db: AngularFireDatabase,

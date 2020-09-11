@@ -62,7 +62,7 @@ export class HeaderComponent implements OnInit {
     try {
       await this.auth.signOut();
 
-      this.router.navigateByUrl("/donate/signin");
+      this.router.navigateByUrl("/apply/signin");
       this.toastr.info("Successfully signed out");
       this.email = null;
 
