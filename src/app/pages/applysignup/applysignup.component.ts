@@ -6,6 +6,8 @@ import { NgForm } from "@angular/forms";
 import { AngularFireDatabase } from "@angular/fire/database";
 import { finalize } from "rxjs/operators";
 
+import { v4 as uuidv4 } from "uuid";
+
 @Component({
   selector: "app-applysignup",
   templateUrl: "./applysignup.component.html",
@@ -36,6 +38,7 @@ export class ApplysignupComponent implements OnInit {
       .signUp(email, password)
       .then((res) => {
         console.log(res);
+
         const { uid } = res.user;
 
         console.log("about to put details into db");
