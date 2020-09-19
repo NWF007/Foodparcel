@@ -48,6 +48,15 @@ import { DonationsComponent } from './components/accounting/donations/donations.
 import { DonorsComponent } from './components/accounting/donors/donors.component';
 import { ApplicantsComponent } from './components/applications/applicants/applicants.component';
 import { UpdateapplicationComponent } from './components/applications/updateapplication/updateapplication.component';
+import { AddParcelsComponent } from './components/inventory/add-parcels/add-parcels.component';
+import { RemoveParcelsComponent } from './components/inventory/remove-parcels/remove-parcels.component';
+import { TotalInventoryComponent } from './components/inventory/total-inventory/total-inventory.component';
+import { VolunteersComponent } from './pages/volunteers/volunteers.component';
+import { VolunteerssignupComponent } from './pages/volunteerssignup/volunteerssignup.component';
+import { VolunteerssigninComponent } from './pages/volunteerssignin/volunteerssignin.component';
+import { DashboardComponent } from './components/volunteers/dashboard/dashboard.component';
+import { DeliveryCompletedComponent } from './components/volunteers/delivery-completed/delivery-completed.component';
+import { ViewapplicationComponent } from './components/applications/viewapplication/viewapplication.component';
 // import {} from 'googlemaps';
 
 @NgModule({
@@ -75,7 +84,16 @@ import { UpdateapplicationComponent } from './components/applications/updateappl
     DonationsComponent,
     DonorsComponent,
     ApplicantsComponent,
-    UpdateapplicationComponent
+    UpdateapplicationComponent,
+    AddParcelsComponent,
+    RemoveParcelsComponent,
+    TotalInventoryComponent,
+    VolunteersComponent,
+    VolunteerssignupComponent,
+    VolunteerssigninComponent,
+    DashboardComponent,
+    DeliveryCompletedComponent,
+    ViewapplicationComponent
   ],
   imports: [
     BrowserModule,

@@ -1,17 +1,25 @@
-<h2 class="text-white text-center">Welcome to the inventory subsystem</h2>
+<div class="container">
+  <h2 class="text-white text-center">Welcome to the inventory subsystem</h2>
 
-<div class="row m-2">
-  <div class="text-center col-3">
-    <button class="btn btn-danger btn-block m-3">View Inventory</button>
-  </div>
+  <div class="row m-2">
+    <div class="text-center col-4">
+      <button class="btn btn-danger btn-block m-3">View Inventory</button>
+    </div>
 
-  <div class="text-center col-3">
-    <button class="btn btn-danger btn-block m-3">Add New Parcels</button>
-  </div>
+    <div class="text-center col-4">
+      <button (click)="displayForm()" class="btn btn-danger btn-block m-3">
+        Add New Parcels
+      </button>
+    </div>
 
-  <div class="text-center col-3">
-    <button class="btn btn-danger btn-block m-3">
-      Parcels out for Delivery
-    </button>
+    <div class="text-center col-4">
+      <button class="btn btn-danger btn-block m-3">
+        Parcels out for Delivery
+      </button>
+    </div>
+
+    <div>
+      <app-add-parcels *ngIf="form"></app-add-parcels>
+    </div>
   </div>
 </div>

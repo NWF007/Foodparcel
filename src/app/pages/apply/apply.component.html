@@ -1,9 +1,18 @@
 <div class="container">
-    <h3 class="text-white text-center m-3">
-        Thank you so much for applying... 
-    </h3>
+  <h3 class="text-white text-center m-3">
+    Thank you so much for applying... {{ applicantId }}
+  </h3>
 
-    <p class="text-white text-center">
-        Constantly check your profile to see any updates.
-    </p>
+  <p class="text-white text-center">
+    Constantly check your profile to see any updates.
+  </p>
+
+  <div class="row m-2">
+    <div class="text-center col-3">
+      <button (click)="showStatus()" class="btn btn-danger btn-block m-3">
+        View Application Status
+      </button>
+    </div>
+  </div>
+  <app-viewapplication *ngIf="status"></app-viewapplication>
 </div>

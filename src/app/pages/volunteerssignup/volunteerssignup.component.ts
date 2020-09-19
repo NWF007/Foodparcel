@@ -1,26 +1,23 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
 import { ToastrService } from "ngx-toastr";
+import { Router } from "@angular/router";
 import { AuthService } from "src/app/services/auth.service";
 import { NgForm } from "@angular/forms";
-import { AngularFireDatabase } from "@angular/fire/database";
 import { finalize } from "rxjs/operators";
-
-import { v4 as uuidv4 } from "uuid";
-import { idTokenResult } from "@angular/fire/auth-guard";
+import { AngularFireDatabase } from "@angular/fire/database";
 
 @Component({
-  selector: "app-applysignup",
-  templateUrl: "./applysignup.component.html",
-  styleUrls: ["./applysignup.component.css"],
+  selector: "app-volunteerssignup",
+  templateUrl: "./volunteerssignup.component.html",
+  styleUrls: ["./volunteerssignup.component.css"],
 })
-export class ApplysignupComponent implements OnInit {
-  userId = null;
+export class VolunteerssignupComponent implements OnInit {
+  listOfGender: Array<string> = ["Male", "Female", "Rather not say"];
 
   constructor(
-    private router: Router,
-    private toastr: ToastrService,
     private auth: AuthService,
+    private toastr: ToastrService,
+    private router: Router,
     private db: AngularFireDatabase
   ) {}
 
@@ -28,39 +25,33 @@ export class ApplysignupComponent implements OnInit {
 
   onSubmit(f: NgForm) {
     const {
-      firstName,
-      lastName,
       email,
       password,
+      firstName,
+      lastName,
       phoneNumber,
-      address,
-      annualIncome,
+      gender,
     } = f.form.value;
 
     this.auth
       .signUp(email, password)
       .then((res) => {
         console.log(res);
-
         const { uid } = res.user;
-        this.userId = uid;
-        console.log(this.userId);
 
         console.log("about to put details into db");
-        this.db.object(`/applicants/${uid}/`).set({
+        this.db.object(`/volunteers/${uid}`).set({
           id: uid,
           firstName: firstName,
           lastName: lastName,
           email: email,
           phoneNumber: phoneNumber,
-          address: address,
-          annualIncome: annualIncome,
-          qualify: false,
+          gender: gender,
         });
       })
       .then(() => {
         console.log("managed to put into db");
-        this.router.navigateByUrl(`/apply/${this.userId}`);
+        this.router.navigateByUrl("/volunteer");
         this.toastr.success("Successful signup");
       })
       .catch((err) => {

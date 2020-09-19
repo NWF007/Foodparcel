@@ -1,0 +1,27 @@
+<div class="container">
+  <h2 class="text-white text-center">Thank you for becoming a volunteer</h2>
+
+  <div class="row m-2">
+    <div class="text-center col-3">
+      <button (click)="showDashboard()" class="btn btn-danger btn-block m-3">
+        Dashboard
+      </button>
+    </div>
+
+    <div class="text-center col-3">
+      <button
+        (click)="showDeliveriesDone()"
+        class="btn btn-danger btn-block m-3"
+      >
+        Delivery Completed
+      </button>
+    </div>
+
+    <!-- <div class="text-center col-3">
+        <button class="btn btn-danger btn-block m-3">Get all Expenses</button>
+      </div> -->
+  </div>
+
+  <app-dashboard *ngIf="dashboard"></app-dashboard>
+  <app-delivery-completed *ngIf="deliverComplete"></app-delivery-completed>
+</div>

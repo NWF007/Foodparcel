@@ -5,13 +5,11 @@ import { ToastrService } from "ngx-toastr";
 import { Router } from "@angular/router";
 
 @Component({
-  selector: "app-applysignin",
-  templateUrl: "./applysignin.component.html",
-  styleUrls: ["./applysignin.component.css"],
+  selector: "app-volunteerssignin",
+  templateUrl: "./volunteerssignin.component.html",
+  styleUrls: ["./volunteerssignin.component.css"],
 })
-export class ApplysigninComponent implements OnInit {
-  userId = null;
-
+export class VolunteerssigninComponent implements OnInit {
   constructor(
     private auth: AuthService,
     private toastr: ToastrService,
@@ -26,10 +24,8 @@ export class ApplysigninComponent implements OnInit {
     this.auth
       .signIn(email, password)
       .then((res) => {
-        console.log("response", res);
-        this.userId = res.user.uid;
         this.toastr.success("sign in successful");
-        this.router.navigateByUrl(`/apply/${this.userId}`);
+        this.router.navigateByUrl("/volunteer");
       })
       .catch((err) => {
         this.toastr.error(err.message, "", {

@@ -113,10 +113,35 @@
         >Sign Up</a
       >
 
+      <!-- show signup and signin for donors for volunteer -->
+      <a
+        *ngIf="router.url === '/volunteer/signup'"
+        routerLinkActive="active"
+        [routerLink]="['/volunteer/signin']"
+        class="nav-item nav-link"
+        >Sign In</a
+      >
+
+      <a
+        *ngIf="router.url === '/volunteer/signin'"
+        routerLinkActive="active"
+        [routerLink]="['/volunteer/signup']"
+        class="nav-item nav-link"
+        >Sign Up</a
+      >
+
       <a
         *ngIf="router.url == '/'"
         routerLinkActive="active"
-        [routerLink]="['/apply']"
+        [routerLink]="['/volunteer']"
+        class="nav-item nav-link"
+        >Volunteer</a
+      >
+
+      <a
+        *ngIf="router.url == '/'"
+        routerLinkActive="active"
+        [routerLink]="['/apply/:id']"
         class="nav-item nav-link"
         >Apply Here</a
       >
@@ -151,7 +176,7 @@
 
       <!-- this logout is for the applicants -->
       <a
-        *ngIf="email && router.url == '/apply'"
+        *ngIf="email && router.url == '/apply/'"
         (click)="handleApplySignOut()"
         class="nav-item nav-link text-warning"
         >Log Out</a
@@ -161,6 +186,14 @@
       <a
         *ngIf="email && router.url == '/donate'"
         (click)="handleDonorSignOut()"
+        class="nav-item nav-link text-warning"
+        >Log Out</a
+      >
+
+      <!-- this logout is for volunteer -->
+      <a
+        *ngIf="email && router.url == '/volunteer'"
+        (click)="handleVolunteerSignOut()"
         class="nav-item nav-link text-warning"
         >Log Out</a
       >
