@@ -13,13 +13,14 @@
     </div>
 
     <div class="text-center col-4">
-      <button class="btn btn-danger btn-block m-3">
+      <button (click)="displayOutForm()" class="btn btn-danger btn-block m-3">
         Parcels out for Delivery
       </button>
     </div>
 
     <div>
-      <app-add-parcels *ngIf="form"></app-add-parcels>
+      <app-add-parcels *ngIf="addForm"></app-add-parcels>
+      <app-remove-parcels *ngIf="outForm"></app-remove-parcels>
     </div>
   </div>
 </div>

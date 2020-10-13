@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { AngularFireDatabase } from "@angular/fire/database";
 import { ToastrService } from "ngx-toastr";
+import { Applications } from "src/app/model/Applications";
 
 @Component({
   selector: "app-viewapplication",
@@ -10,6 +11,9 @@ import { ToastrService } from "ngx-toastr";
 })
 export class ViewapplicationComponent implements OnInit {
   applicantId;
+  applicantName;
+  status = "";
+  qualifying: true | false | null;
 
   constructor(
     private route: ActivatedRoute,
@@ -27,13 +31,23 @@ export class ViewapplicationComponent implements OnInit {
     this.db
       .object(`/applicants/${this.applicantId}`)
       .valueChanges()
-      .subscribe((applicant) => {
+      .subscribe((applicant: Applications) => {
         if (applicant) {
-          // this.ELEMENT_DATA = Object.values(donor);
-          console.log(Object.values(applicant));
+          // this.applicantName = applicant.name;
+          status = applicant.qualify.toString();
+          console.log(status);
+          if (status === "true") {
+            console.log("Congrats you qualify");
+            this.qualifying = true;
+          } else if (status === "false") {
+            console.log("Sorry you do not qualify");
+            this.qualifying = false;
+          } else {
+            console.log("No updates yet, check again in a few days");
+            this.qualifying = null;
+          }
         } else {
           this.toastr.error("No application founded");
-          // this.ELEMENT_DATA = [];
         }
       });
   }

@@ -10,7 +10,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./updateapplication.component.css"],
 })
 export class UpdateapplicationComponent implements OnInit {
-  qualifyOptions: Array<string> = ["True", "False"];
+  qualifyOptions: Array<string> = ["", "true", "false"];
   applicantsList: Array<string> = [""];
 
   id: string;

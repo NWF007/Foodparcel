@@ -61,7 +61,7 @@ export class ApplysignupComponent implements OnInit {
       .then(() => {
         console.log("managed to put into db");
         this.router.navigateByUrl(`/apply/${this.userId}`);
-        this.toastr.success("Successful signup");
+        this.toastr.success("Successful applied");
       })
       .catch((err) => {
         console.log(err);

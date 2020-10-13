@@ -4,6 +4,7 @@ import { NgForm } from "@angular/forms";
 import { finalize } from "rxjs/operators";
 import { AngularFireDatabase } from "@angular/fire/database";
 import { ToastrService } from "ngx-toastr";
+import { DatePipe } from "@angular/common";
 
 import { v4 as uuidv4 } from "uuid";
 import { Router } from "@angular/router";
@@ -23,7 +24,8 @@ export class AddParcelsComponent implements OnInit {
     private db: AngularFireDatabase,
     private toastr: ToastrService,
     private auth: AuthService,
-    private router: Router
+    private router: Router,
+    public datepipe: DatePipe
   ) {
     auth.getUser().subscribe((user) => {
       this.db
@@ -45,8 +47,8 @@ export class AddParcelsComponent implements OnInit {
       .object(`/parcelsIn/${uid}`)
       .set({
         transactionId: uid,
-        amount: this.amount,
-        date: Date.now(),
+        quantity: this.amount,
+        date: this.datepipe.transform(Date.now(), "yyyy-MM-dd"),
         capturedBy: this.user.email,
         userId: this.user.id,
       })

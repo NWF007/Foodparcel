@@ -84,7 +84,7 @@ const routes: Routes = [
     data: { authGuardPipe: redirectUnauthorizedApplicantToLogin },
   },
   {
-    path: "donate",
+    path: "donate/:id",
     component: DonateComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedDonorToLogin },

@@ -1,2 +1,39 @@
-<p>viewapplication works!</p>
-<p>{{ applicantId }}</p>
+<div *ngIf="qualifying === true">
+  <!-- <p>You qualify for foodparcel</p> -->
+  <!-- <center> -->
+  <img
+    src="../../../../assets/success.png"
+    alt="Busy"
+    style="width: 250px; height: 250px; align-content: center"
+  />
+  <!-- </center> -->
+  <p>We have reviewed your application and you qualify for foodparcels</p>
+</div>
+
+<div *ngIf="qualifying === false">
+  <!-- <p>You do not qualify for foodparcel</p> -->
+  <!-- <center> -->
+  <img
+    src="../../../../assets/fail-icon-27.jpg"
+    alt="Busy"
+    style="width: 200px; height: 200px; align-content: center"
+  />
+  <!-- </center> -->
+  <p>
+    We have reviewed your application and you do not qualify for foodparcels
+  </p>
+</div>
+
+<div *ngIf="qualifying === null">
+  <!-- <p>Status not updated yet, check again in 24hours</p> -->
+  <!-- <center> -->
+  <img
+    src="../../../../assets/loading.gif"
+    alt="Busy"
+    style="width: 200px; height: 200px; align-content: center"
+  />
+  <!-- </center> -->
+  <p>
+    We are currently reviewing your application, please check again in 24 hours
+  </p>
+</div>

@@ -6,13 +6,18 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./inventory.component.css"],
 })
 export class InventoryComponent implements OnInit {
-  form = false;
+  addForm = false;
+  outForm = false;
 
   constructor() {}
 
   ngOnInit(): void {}
 
   displayForm() {
-    this.form = !this.form;
+    this.addForm = !this.addForm;
+  }
+
+  displayOutForm() {
+    this.outForm = !this.outForm;
   }
 }
