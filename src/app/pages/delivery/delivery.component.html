@@ -2,12 +2,17 @@
 
 <div class="row m-2">
   <div class="text-center col-3">
-    <button class="btn btn-danger btn-block m-3">
+    <button (click)="showView()" class="btn btn-danger btn-block m-3">
       View current deliveries
     </button>
   </div>
 
   <div class="text-center col-3">
-    <button class="btn btn-danger btn-block m-3">Create next delivery</button>
+    <button (click)="showCreate()" class="btn btn-danger btn-block m-3">
+      Create next delivery
+    </button>
   </div>
 </div>
+
+<app-create-delivery *ngIf="create"></app-create-delivery>
+<app-view-deliveries *ngIf="view"></app-view-deliveries>

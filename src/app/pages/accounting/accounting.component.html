@@ -15,11 +15,15 @@
     </div>
 
     <div class="text-center col-3">
-      <button class="btn btn-danger btn-block m-3">Get all Expenses</button>
+      <button (click)="showExpenses()" class="btn btn-danger btn-block m-3">
+        Get all Expenses
+      </button>
     </div>
   </div>
 
   <app-donations *ngIf="donations"></app-donations>
 
   <app-donors *ngIf="donors"></app-donors>
+
+  <app-expenses *ngIf="expenses"></app-expenses>
 </div>

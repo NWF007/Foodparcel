@@ -8,6 +8,7 @@ import { Component, OnInit } from "@angular/core";
 export class InventoryComponent implements OnInit {
   addForm = false;
   outForm = false;
+  viewForm = false;
 
   constructor() {}
 
@@ -19,5 +20,9 @@ export class InventoryComponent implements OnInit {
 
   displayOutForm() {
     this.outForm = !this.outForm;
+  }
+
+  displayViewForm() {
+    this.viewForm = !this.viewForm;
   }
 }

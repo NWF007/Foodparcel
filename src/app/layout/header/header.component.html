@@ -8,7 +8,8 @@
         alt=""
       /> -->
     <div>
-      <h3 class="brand mr-3">N<span>W</span>Food</h3>
+      <!-- <h3 class="brand mr-3">N<span>W</span>Food</h3> -->
+      <h3 class="brand mr-3">Gr<span>OU</span>p 5</h3>
     </div></a
   >
   <button
@@ -78,7 +79,7 @@
         class="nav-item nav-link"
         >Sign Up</a
       >
-      <!-- 
+      <!--
       show signup and signin for donors to donate -->
       <a
         *ngIf="router.url === '/donate/signup'"
@@ -133,23 +134,22 @@
       <a
         *ngIf="router.url == '/'"
         routerLinkActive="active"
+        [routerLink]="['/apply/:id']"
+        class="nav-item nav-link"
+        >Apply Here</a
+      >
+      <a
+        *ngIf="router.url == '/'"
+        routerLinkActive="active"
         [routerLink]="['/volunteer']"
         class="nav-item nav-link"
         >Volunteer</a
       >
 
       <a
-        *ngIf="router.url == '/'"
-        routerLinkActive="active"
-        [routerLink]="['/apply/:id']"
-        class="nav-item nav-link"
-        >Apply Here</a
-      >
-
-      <a
         *ngIf="router.url === '/'"
         routerLinkActive="active"
-        [routerLink]="['/donate/:id']"
+        [routerLink]="['/donate']"
         class="nav-item nav-link"
         >Donations</a
       >

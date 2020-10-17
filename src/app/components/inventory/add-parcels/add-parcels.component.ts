@@ -16,9 +16,10 @@ import { Router } from "@angular/router";
 })
 export class AddParcelsComponent implements OnInit {
   user = null;
-  amount: number;
+  quantity: number;
   email = null;
   userId;
+  price: number;
 
   constructor(
     private db: AngularFireDatabase,
@@ -42,20 +43,21 @@ export class AddParcelsComponent implements OnInit {
 
   onSubmit() {
     const uid = uuidv4();
-
+    this.price = this.quantity * 100;
     this.db
       .object(`/parcelsIn/${uid}`)
       .set({
         transactionId: uid,
-        quantity: this.amount,
+        quantity: this.quantity,
         date: this.datepipe.transform(Date.now(), "yyyy-MM-dd"),
         capturedBy: this.user.email,
         userId: this.user.id,
+        price: this.price,
       })
       .then(() => {
-        console.log(uid, this.email, this.amount, Date.now());
+        console.log(uid, this.email, this.quantity, Date.now());
         this.toastr.success("Successfully added!");
-        this.amount = 0;
+        this.quantity = 0;
         // this.form = false;
         this.router.navigateByUrl("/admin/inventory");
       })

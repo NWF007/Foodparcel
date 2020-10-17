@@ -32,6 +32,7 @@ import { DeliveriesComponent } from "./pages/deliveries/deliveries.component";
 
 //import { DatePickerModule} from '@angular/material';
 import { MatNativeDateModule } from "@angular/material/core";
+import { MatCardModule } from "@angular/material/card";
 import { MatTableModule } from "@angular/material/table";
 import { MatSnackBarModule } from "@angular/material/snack-bar";
 import { MatDatepickerModule } from "@angular/material/datepicker";
@@ -43,6 +44,12 @@ import { ApplysigninComponent } from "./pages/applysignin/applysignin.component"
 
 // this is for google maps
 import { AgmCoreModule } from "@agm/core";
+import { AgmSnazzyInfoWindowModule } from "@agm/snazzy-info-window";
+
+// import { AgmSnazzyinfoWindowModule } from "snazzy-info-window";
+// import { MatGoogleMapsAutocompleteModule } from "@angular-material-extensions/google-maps-autocomplete";
+// import { FlexLayoutModule } from "@angular/flex-layout";
+
 import { DonationsComponent } from "./components/accounting/donations/donations.component";
 import { DonorsComponent } from "./components/accounting/donors/donors.component";
 import { ApplicantsComponent } from "./components/applications/applicants/applicants.component";
@@ -57,6 +64,9 @@ import { DashboardComponent } from "./components/volunteers/dashboard/dashboard.
 import { DeliveryCompletedComponent } from "./components/volunteers/delivery-completed/delivery-completed.component";
 import { ViewapplicationComponent } from "./components/applications/viewapplication/viewapplication.component";
 import { DatePipe } from "@angular/common";
+import { ExpensesComponent } from "./components/accounting/expenses/expenses.component";
+import { CreateDeliveryComponent } from "./components/delivery/create-delivery/create-delivery.component";
+import { ViewDeliveriesComponent } from "./components/delivery/view-deliveries/view-deliveries.component";
 // import {} from 'googlemaps';
 
 @NgModule({
@@ -94,6 +104,9 @@ import { DatePipe } from "@angular/common";
     DashboardComponent,
     DeliveryCompletedComponent,
     ViewapplicationComponent,
+    ExpensesComponent,
+    CreateDeliveryComponent,
+    ViewDeliveriesComponent,
   ],
   imports: [
     BrowserModule,
@@ -116,10 +129,14 @@ import { DatePipe } from "@angular/common";
     //DatePickerModule
     MatTableModule,
     MatSnackBarModule,
+    MatCardModule,
 
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyDh-NTL96frMkzPszwbrcf0hdQ8pRA67I0", //add apiKey here
     }),
+    AgmSnazzyInfoWindowModule,
+    // MatGoogleMapsAutocompleteModule,
+    // FlexLayoutModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

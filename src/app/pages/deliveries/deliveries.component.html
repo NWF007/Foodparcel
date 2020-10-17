@@ -4,6 +4,16 @@
 
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
-<agm-map [latitude]="lat" [longitude]="lng">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-marker
+    *ngFor="let del of deliveries"
+    [latitude]="del.lat"
+    [longitude]="del.long"
+  >
+    <agm-snazzy-info-window [closeWhenOthersOpen]="true">
+      <ng-template>
+        <mat-card>{{ del.date }}</mat-card>
+      </ng-template>
+    </agm-snazzy-info-window>
+  </agm-marker>
 </agm-map>
