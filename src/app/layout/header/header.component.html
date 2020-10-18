@@ -184,7 +184,7 @@
 
       <!-- this logout is for donate -->
       <a
-        *ngIf="email && router.url.startsWith('/donate/')"
+        *ngIf="email && router.url.startsWith('/donate')"
         (click)="handleDonorSignOut()"
         class="nav-item nav-link text-warning"
         >Log Out</a
@@ -192,7 +192,7 @@
 
       <!-- this logout is for volunteer -->
       <a
-        *ngIf="email && router.url.startsWith('/volunteer/')"
+        *ngIf="email && router.url.startsWith('/volunteer')"
         (click)="handleVolunteerSignOut()"
         class="nav-item nav-link text-warning"
         >Log Out</a

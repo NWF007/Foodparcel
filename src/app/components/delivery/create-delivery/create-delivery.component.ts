@@ -81,6 +81,8 @@ export class CreateDeliveryComponent implements OnInit {
         location: location,
         latitude: this.latitude,
         longitude: this.longitude,
+        isComplete: false,
+        volunteerId: "  ",
       })
       .then(() => {
         this.toastr.success("Successfully added!");

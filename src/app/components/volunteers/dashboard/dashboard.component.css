@@ -1,0 +1,55 @@
+.mat-cell {
+  color: blue;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 15px;
+}
+
+.mat-header-cell {
+  text-align: center;
+  margin: 1px;
+  font-weight: bold;
+  font-size: 17px;
+  padding: 15px 0;
+  background-color: crimson;
+  color: white;
+}
+
+.mat-row:nth-child(even) {
+  background-color: whitesmoke;
+}
+.mat-row:nth-child(odd) {
+  background-color: silver;
+}
+
+th.mat-sort-header-sorted {
+  color: red;
+}
+
+.mat-column-transactionId {
+  width: 30%;
+}
+
+.mat-column-userId {
+  width: 20%;
+}
+
+.mat-column-date {
+  width: 20%;
+}
+
+.mat-column-capturedBy {
+  width: 10%;
+}
+
+.mat-column-quantity {
+  width: 10%;
+}
+
+.mat-column-location {
+  width: 15%;
+}
+
+.mat-column-isComplete {
+  width: 15%;
+}

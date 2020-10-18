@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { AngularFireDatabase } from "@angular/fire/database";
 import { ToastrService } from "ngx-toastr";
 import { Deliveries } from "src/app/model/Deliveries";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-deliveries",
@@ -9,9 +10,12 @@ import { Deliveries } from "src/app/model/Deliveries";
   styleUrls: ["./deliveries.component.css"],
 })
 export class DeliveriesComponent implements OnInit {
-  lat = -33.9249;
-  lng = 18.4241;
-  zoom = 13;
+  // lat = -33.9249;
+  lat = -33.6666;
+  // lng = 18.4241;
+  lng = 18.5812;
+  zoom = 10;
+  today = Date.now();
 
   deliveries: Deliveries[] = [];
 
@@ -25,11 +29,9 @@ export class DeliveriesComponent implements OnInit {
     this.db
       .object(`/delivery`)
       .valueChanges()
-      .pipe()
       .subscribe((delivery: Deliveries) => {
         if (delivery) {
-          console.log(delivery);
-          this.deliveries.push(delivery);
+          this.deliveries = Object.values(delivery);
           console.log(this.deliveries);
         } else {
           this.toastr.error("No donations found, sorry...");

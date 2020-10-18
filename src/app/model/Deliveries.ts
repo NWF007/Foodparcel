@@ -5,6 +5,7 @@ export interface Deliveries {
   date: string;
   location: string;
   quantity: number;
-  lat: number;
-  long: number;
+  latitude: number;
+  longitude: number;
+  isComplete: boolean;
 }

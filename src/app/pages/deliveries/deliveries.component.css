@@ -1,3 +1,8 @@
 agm-map {
   height: 500px;
 }
+
+.example-card {
+  padding: 0;
+  margin: 0;
+}

@@ -1,1 +1,55 @@
-<p>delivery-completed works!</p>
+<div>
+  <div class="main row mt-5 mb-3">
+    <div class="col col-6 offset-2">
+      <div class="card border-primary">
+        <div class="card-header bg-secondary text-large text-white text-center">
+          {{ "Update application here" | uppercase }}
+        </div>
+
+        <form class="card-body" (ngSubmit)="onSubmit(f)" #f="ngForm">
+          <div class="form-group">
+            <label for="id">ID</label>
+            <input
+              type="text"
+              rows="5"
+              class="form-control"
+              id="id"
+              name="id"
+              [(ngModel)]="id"
+              required
+              placeholder="Delivery ID"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="qualify">Completed?</label>
+            <select
+              type="text"
+              rows="5"
+              class="form-control"
+              id="isComplete"
+              name="isComplete"
+              [(ngModel)]="isComplete"
+              required
+              placeholder="false"
+            >
+              <option *ngFor="let qualify of qualifyOptions" [value]="qualify">
+                {{ qualify }}
+              </option>
+            </select>
+          </div>
+
+          <div class="text-center">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              [disabled]="f.invalid"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
