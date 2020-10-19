@@ -13,6 +13,7 @@ import { AngularFireDatabase } from "@angular/fire/database";
 })
 export class VolunteerssignupComponent implements OnInit {
   listOfGender: Array<string> = ["Male", "Female", "Rather not say"];
+  userId;
 
   constructor(
     private auth: AuthService,
@@ -38,6 +39,7 @@ export class VolunteerssignupComponent implements OnInit {
       .then((res) => {
         console.log(res);
         const { uid } = res.user;
+        this.userId = uid;
 
         console.log("about to put details into db");
         this.db.object(`/volunteers/${uid}`).set({
@@ -51,7 +53,7 @@ export class VolunteerssignupComponent implements OnInit {
       })
       .then(() => {
         console.log("managed to put into db");
-        this.router.navigateByUrl("/volunteer");
+        this.router.navigateByUrl(`/volunteer/${this.userId}`);
         this.toastr.success("Successful signup");
       })
       .catch((err) => {

@@ -10,6 +10,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./volunteerssignin.component.css"],
 })
 export class VolunteerssigninComponent implements OnInit {
+  userId = null;
+
   constructor(
     private auth: AuthService,
     private toastr: ToastrService,
@@ -24,8 +26,9 @@ export class VolunteerssigninComponent implements OnInit {
     this.auth
       .signIn(email, password)
       .then((res) => {
+        this.userId = res.user.uid;
         this.toastr.success("sign in successful");
-        this.router.navigateByUrl("/volunteer");
+        this.router.navigateByUrl(`/volunteer/${this.userId}`);
       })
       .catch((err) => {
         this.toastr.error(err.message, "", {

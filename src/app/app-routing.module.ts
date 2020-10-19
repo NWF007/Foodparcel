@@ -59,12 +59,11 @@ const routes: Routes = [
     data: { authGuardPipe: redirectLoggedInVolunteerToVolunteer },
   },
   {
-    path: "volunteer",
+    path: "volunteer/:id",
     component: VolunteersComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedVolunteerToLogin },
   },
-
   {
     path: "apply/signup",
     component: ApplysignupComponent,
@@ -84,12 +83,6 @@ const routes: Routes = [
     data: { authGuardPipe: redirectUnauthorizedApplicantToLogin },
   },
   {
-    path: "donate",
-    component: DonateComponent,
-    canActivate: [AngularFireAuthGuard],
-    data: { authGuardPipe: redirectUnauthorizedDonorToLogin },
-  },
-  {
     path: "donate/signup",
     component: DonatesignupComponent,
     canActivate: [AngularFireAuthGuard],
@@ -100,6 +93,12 @@ const routes: Routes = [
     component: DonatesigninComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectLoggedInDonorToDonate },
+  },
+  {
+    path: "donate/:id",
+    component: DonateComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedDonorToLogin },
   },
   {
     path: "delivery",

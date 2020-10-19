@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ToastrService } from "ngx-toastr";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { AngularFireDatabase } from "@angular/fire/database";
 import { NgForm } from "@angular/forms";
 
@@ -11,17 +11,21 @@ import { NgForm } from "@angular/forms";
 })
 export class DeliveryCompletedComponent implements OnInit {
   qualifyOptions: Array<string> = ["", "true", "false"];
-
+  volunteerId;
   id: string;
   isComplete: boolean;
 
   constructor(
+    private route: ActivatedRoute,
     private db: AngularFireDatabase,
     private toastr: ToastrService,
     private router: Router
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    let id = this.route.snapshot.paramMap.get("id");
+    this.volunteerId = id;
+  }
 
   onSubmit(f: NgForm) {
     const { id, isComplete } = f.form.value;
@@ -29,6 +33,7 @@ export class DeliveryCompletedComponent implements OnInit {
     console.log("updating");
     this.db.database.ref(`/delivery/${id}`).update({
       isComplete: isComplete,
+      volunteerId: this.volunteerId,
     });
 
     if (isComplete === "true") {

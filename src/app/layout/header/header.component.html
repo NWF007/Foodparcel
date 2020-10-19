@@ -141,7 +141,7 @@
       <a
         *ngIf="router.url == '/'"
         routerLinkActive="active"
-        [routerLink]="['/volunteer']"
+        [routerLink]="['/volunteer/:id']"
         class="nav-item nav-link"
         >Volunteer</a
       >
@@ -149,7 +149,7 @@
       <a
         *ngIf="router.url === '/'"
         routerLinkActive="active"
-        [routerLink]="['/donate']"
+        [routerLink]="['/donate/:id']"
         class="nav-item nav-link"
         >Donations</a
       >
