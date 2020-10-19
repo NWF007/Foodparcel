@@ -6,7 +6,7 @@
 <!-- the component as the initial center of the map: -->
 <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
   <div *ngFor="let del of deliveries; let i = index">
-    <div *ngIf="del.isComplete">
+    <div>
       <agm-marker [latitude]="del.latitude" [longitude]="del.longitude">
         <agm-snazzy-info-window [closeWhenOthersOpen]="true">
           <ng-template class="example-card">
